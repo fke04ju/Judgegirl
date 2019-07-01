@@ -29,6 +29,6 @@ int main () {
                 printf("%d", result->data);
                 result = result->next;
                 printf("%c", result ? ' ' : '\n');
-        };
+        }
         return 0;
 }
