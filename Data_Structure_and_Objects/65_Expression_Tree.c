@@ -12,7 +12,7 @@ Node *construct(Node *root){
 	root = (Node *)malloc(sizeof(Node));
 	root->left = NULL;
 	root->right = NULL;
-	char op[33] = {};
+	char op[33];
 	scanf("%s",op);
 	if(op[0] == '('){
 		scanf("%s",op);
@@ -20,15 +20,14 @@ Node *construct(Node *root){
 		root->left = construct(root->left);
 		root->right = construct(root->right);
 		scanf("%s",op);
-		return root;
 	}else{
 		strcpy(root->operator,op);
 	}
 	return root;
 }
 
-char table_var[50][33] = {{}};
-int table_const[50] = {};
+char table_var[50][33];
+int table_const[50];
 int n = 0;
 
 int calculate(Node *root){
@@ -56,12 +55,8 @@ int calculate(Node *root){
 int main(){
 	Node *root = (Node *)malloc(sizeof(Node));
 	root = construct(root);
-	char var[33];
 	char op[3];
-	int num;
-	while(scanf("%s%s%d",var,op,&num)!=EOF){
-		strcpy(table_var[n],var);
-		table_const[n] = num;
+	while(scanf("%s%s%d",table_var[n],op,&table_const[n])!=EOF){
 		n++;
 	}
 	int total = calculate(root);
