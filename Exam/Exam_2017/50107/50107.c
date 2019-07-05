@@ -2,20 +2,21 @@
 #include <stdlib.h>
 #include <string.h>
 
-typedef struct Students{
+typedef struct Student{
 	char name[64];
-	int height;
-	int weight;
+	int height,weight;
 	double bmi;
-}Students;
+}Student;
 
 double countbmi(int h,int w){
-	return (w/(h*h));
+	double h_m = h;
+	h_m /= 100;
+	return (w/(h_m*h_m));
 }
 
-int compare(Students *data1,Students *data2){
-	Students *ptr1 = (Students *)data1;
-	Students *ptr2 = (Students *)data2;
+int compare(const void *data1,const void *data2){
+	Student *ptr1 = (Student *)data1;
+	Student *ptr2 = (Student *)data2;
 	if(ptr1->bmi > ptr2->bmi){
 		return 1;
 	}else if(ptr1->bmi < ptr2->bmi){
@@ -31,7 +32,7 @@ int compare(Students *data1,Students *data2){
 			}else if(ptr1->height < ptr2->height){
 				return -1;
 			}else{
-				return strcmp(ptr1->name,ptr2->name);
+				return (strcmp(ptr1->name,ptr2->name));
 			}
 		}
 	}
@@ -40,12 +41,12 @@ int compare(Students *data1,Students *data2){
 int main(){
 	int n;
 	scanf("%d",&n);
-	Students students[n];
+	Student students[n];
 	for(int i = 0;i<n;i++){
-		scanf("%s%d%d",students[i].name,students[i].height,students[i].weight);
+		scanf("%s%d%d",students[i].name,&students[i].height,&students[i].weight);
 		students[i].bmi = countbmi(students[i].height,students[i].weight);
 	}
-	qsort(students,n,sizeof(Students),compare);
+	qsort(students,n,sizeof(Student),compare);
 	for(int i = 0;i<n;i++){
 		printf("%s %d %d\n",students[i].name,students[i].height,students[i].weight);
 	}

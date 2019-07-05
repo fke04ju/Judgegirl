@@ -1,13 +1,11 @@
-a
-b
-c
-bcde
-bcde
-cdefghi
-ghi
-ghi
-ghijk
-abcdefghijklmn
-zzz
-zzzz
-abc
+insert left a
+insert left a
+insert left b
+insert right a
+insert right c
+insert left b
+delete right
+insert 4 c
+delete 5
+delete 4
+insert 5 c
