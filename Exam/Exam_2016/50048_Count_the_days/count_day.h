@@ -1,0 +1,1 @@
+void count_day(int year, int day, int month, int results[7]);
