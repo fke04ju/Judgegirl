@@ -3,14 +3,12 @@
 #include <string.h>
 #include "hangman.h"
 
-
-
 int main(){
     int n;
-    scanf("%d",&n);
     char q[MAXL];
     char g[MAXL];
     int G;
+    scanf("%d",&n);
     for(int i = 0;i<n;i++){
         scanf("%s%d%s",q,&G,g);
         int l = strlen(g);
