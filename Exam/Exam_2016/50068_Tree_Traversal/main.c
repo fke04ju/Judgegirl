@@ -1,6 +1,6 @@
-#include "tree.h"
 #include <stdio.h>
 #include <stdlib.h>
+#include "tree.h"
 #define MAX 1000 
  
 Node* newNode(int label, Node *l, Node *r) {

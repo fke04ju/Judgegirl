@@ -1,5 +1,5 @@
-#include "tree.h"
 #include <stdio.h>
+#include "tree.h"
 
 void traversal(Node *root, int N, int command[]){
     Node *ptr[1000];
